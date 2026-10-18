@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Roboto+Condensed:wght@400;700&display=swap");
+:root{
+/*Paleta*/
+--teal: #02b3bb;
+--teal-medio: #05798e;
+--azul-petr: #07516f;
+--navy: #0a1a44;
+--navy-2:#09254d;
+--branco:#ffffff;
+--titulo-home: #cde0e5;
+--glow: #599aab;
+--terra: #ee9d6c;
+--cinza-av:  #e1ded8;
+--azul-av:#235a86;
+--ambar-av: #eba640;
+
+--linkedin: #0a66c2;
+--whatsapp: #25d366;
+--facebook: #1877f2;
+
+
+--grad-diagonal: linear-gradient(135deg, #02B3BB 0%, #0A1B44 100%); /* Home + Mentores */
+  --grad-radial:   radial-gradient(ellipse at 50% 50%, #02B3BB 0%, #0A1B44 100%); /* Sobre a empresa */
+  --grad-ajuda:    linear-gradient(180deg, #02B3BB 0%, #05798E 45%, #05647E 100%);
+  --grad-footer:   linear-gradient(180deg, #083357 0%, #0A1B44 100%);
+  --grad-depoim:   linear-gradient(180deg, #02B3BB 0%, #09254D 31%, #0A1A44 40%, #0A1A44 100%);
+
+}
+
+* { box-sizing: border-box; margin:0; padding: 0; /*outline: 1px solid red;*/}
+body{
+font-family: "Noto Serif", Georgia, serif;
+font-stretch: 75%;
+color: var(--branco);
+min-height: 100vh;
+background: var(--navy);}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 24px clamp(20px, 6vw, 120px) 24px clamp(20px, 5vw, 71px);
+    border-bottom: 1px solid transparent;
+    transition: box-shadow 0.3s, background 0.3s, border-color 0.3s;}
+header.scrolled {
+  background: var(--teal-medio);
+  box-shadow: 0 6px 24px rgba(3, 10, 30, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.25);}
+.logo a{ 
+    color: var(--branco); 
+    text-decoration: none;
+    align-items: center;
+    gap: 12px;
+    display: flex; }
+.logo a::before{
+    content: "";
+    flex-shrink: 0;
+    width: 48px;
+    height: 72px;
+    background: url("imagens/1.png") no-repeat left center / contain;    }
+.logo h1{
+    margin: 0;
+     font-size: clamp(48px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--branco);}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: clamp(20px, 3.5vw, 60px);}
+nav a{
+    font-size: clamp(16px, 2vw, 28px);
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--branco);}
+.hero{
+    background: var(--grad-diagonal);
+    min-height: 100vh;}
+#bolsas{
+    background: var(--grad-diagonal);
+    padding: 80px 5%;
+    scroll-margin-top: 120px;}
+#bolsas h2, #mentorias h2, #depoimentos h2{
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;}
+.faculdades{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1060px;
+    margin: 48px auto 0;}
+.faculdades a{
+    display: block;
+    aspect-ratio: 1;
+    background: var(--navy);
+    border-radius: 16px;}
+#mentorias{
+    padding: 80px 5%;
+    scroll-margin-top: 120px;
+    background: var(--grad-diagonal);}
+.mentores{
+    background: var(--branco);
+    border-radius: 12px;
+    max-width: 960px;
+    margin: 48px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);}
+.mentor{
+    text-align: center;
+    padding: 10px;
+    display: block;
+    overflow-wrap: anywhere;
+    color: var(--navy);}
+.mentor a{
+    color: inherit;
+    text-decoration: none;}
+.mentor-foto{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;}
+.redes{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;}
+.redes img{
+    width: 30px;}
+#depoimentos{
+    background: var(--grad-depoim);
+    padding: 80px 5%;}
+#depoimentos h2{
+    font-weight: 400;
+}
+.lista-depoimentos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin:48px auto 0;}
+.depoimento img{
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--branco);}
+.depoimento blockquote::before{
+    content: "“";
+    color: var(--teal);
+    font-size: 60px;
+    display: block;
+    line-height: 0.5;
+    margin-bottom: -10px;}
+.depoimento p{
+    max-width: 300px;
+    font-size: 20px;
+    line-height:1.6;}
+.depoimento figcaption{
+    font-style: italic;
+    color: var(--teal);
+    margin-top: 40px;
+}
+
+
