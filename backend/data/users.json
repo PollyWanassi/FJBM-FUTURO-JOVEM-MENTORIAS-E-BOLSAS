@@ -1,0 +1,44 @@
+[
+  [
+    {
+      "id": 1,
+      "nome": "Administrador",
+      "email": "admin@exemplo.com",
+      "password": "admin123",
+      "perfil": "administrador"
+    },
+    {
+      "id": 2,
+      "nome": "Aluno Teste",
+      "email": "aluno@exemplo.com",
+      "password": "1234",
+      "perfil": "estudante",
+      "curso": "Engenharia Informática",
+      "media_ensinomedio": 14,
+      "instituicao": "ISPTEC"
+    },
+    {
+      "id": 3,
+      "nome": "Mentor Teste",
+      "email": "mentor@exemplo.com",
+      "password": "1234",
+      "perfil": "mentor"
+    }
+  ],
+  {
+    "nome": "Ana Teste",
+    "email": "ana.teste@example.com",
+    "contacto": "923000000",
+    "formacao": "Engenharia Informática",
+    "password": "$2b$10$rjlhxCw2Y/vvPDX6MbfRMO0C3u8O.7kt1qC1Fi1s0LRGWXvPspiWu"
+  },
+  {
+    "nome": "Ana Cleide",
+    "email": "ana@example.com",
+    "contacto": "923000000",
+    "curso": "Engenharia Informática",
+    "media_ensinomedio": 14,
+    "password": "$2b$10$zZoVWVfp71ItDjYjxtYvCOjGTWtKts43/MZ7rBohfsvBB2MBUFWTy",
+    "tipo": "estudante"
+  }
+]
