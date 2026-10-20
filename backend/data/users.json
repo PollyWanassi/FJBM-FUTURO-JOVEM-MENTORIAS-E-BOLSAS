@@ -40,5 +40,22 @@
     "media_ensinomedio": 14,
     "password": "$2b$10$zZoVWVfp71ItDjYjxtYvCOjGTWtKts43/MZ7rBohfsvBB2MBUFWTy",
     "tipo": "estudante"
+  },
+  {
+    "nome": "Baptista Francisco",
+    "email": "PollyWanassi@gmail.com",
+    "contacto": "923000000",
+    "curso": "Engenharia Informática",
+    "media_ensinomedio": 14,
+    "tipo": "estudante",
+    "password": "$2b$10$MTjdX0xzxeW8/qJLURnZKuJ6CLhm8q1s4.VVM4.qkkOqlU1Pz.3dK"
+  },
+  {
+    "nome": "Frederico Bernardo",
+    "email": "fredbernardo@gmail.com",
+    "contacto": "923090890",
+    "formacao": "Engenharia Informática",
+    "tipo": "Mentor",
+    "password": "$2b$10$Wt5ZPqZmhlt6/B6hfMvGpeMVmjcJwYeYUTxgESe1otTWBVADyhQzS"
   }
 ]
