@@ -18,7 +18,31 @@ h1{font-family:var(--titulo);color:var(--tinta);line-height:1.1}
 .campo input,.campo select{font:inherit;font-size:17px;padding:12px 16px;border:1.5px solid var(--linha);border-radius:12px;background:#fff;color:var(--tinta)}
 .msg{font-size:15px;font-weight:600;min-height:1.4em}
 .msg.ok{color:var(--menta-escuro)} .msg.erro{color:#b3261e}
-body.auth{min-height:100vh;display:grid;place-items:center;padding:32px 5%;background:linear-gradient(160deg,var(--ceu),var(--menta))}
+
+body.auth {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 5%;
+    background-color: var(--papel);
+    background-image:
+        linear-gradient(
+            to right,
+            transparent 0,
+            transparent 55px,
+            #f2b7bf 55px,
+            #f2b7bf 58px,
+            transparent 58px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 40px,
+            var(--linha) 40px,
+            var(--linha) 41px
+        );
+    background-attachment: fixed;
+}
 .auth-card{width:100%;max-width:460px;background:#fff;border-radius:20px;padding:40px 36px;box-shadow:0 18px 40px rgba(29,43,79,.12)}
 .logo{display:inline-block;margin-bottom:24px;font:800 28px var(--titulo);color:var(--tinta);text-decoration:none}
 .auth-card h1{font-size:32px;font-weight:800}
@@ -34,3 +58,56 @@ body.auth{min-height:100vh;display:grid;place-items:center;padding:32px 5%;backg
 .voltar{display:inline-block;margin-top:16px;font-size:15px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:480px){.auth-card{padding:32px 22px}}
+
+
+/* Cartão de cadastro com mais contraste */
+.auth-card {
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d7e3f2;
+    border-radius: 22px;
+    padding: 40px 36px;
+    box-shadow: 0 20px 50px rgba(29, 43, 79, 0.16);
+}
+
+
+/* Faixa superior decorativa */
+.auth-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(
+        90deg,
+        #1d2b4f,
+        #3f6bb8,
+        #80b7ee
+    );
+}
+
+.auth-card .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 8px auto 22px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    text-align: center;
+    color: var(--tinta);
+    text-decoration: none;
+}
+
+/* Ícone da mochila */
+.auth-card .logo-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
