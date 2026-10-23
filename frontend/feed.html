@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | FJMB</title>
+  <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="index.html"><img src="imagens/icone.svg" alt="">FJMB</a>
+    <nav aria-label="Conta">
+      <a href="index.html">Site</a>
+      <a class="btn btn-claro" href="login.html">Sair</a>
+    </nav>
+  </header>
+
+  <main class="feed">
+    <h1>Bolsas e mentorias</h1>
+    <p class="intro">Tudo o que está aberto neste momento, do mais recente para o mais antigo.</p>
+
+    <div class="barra">
+      <div class="filtros" role="group" aria-label="Filtrar por tipo">
+        <button class="chip ativo" data-filtro="todos" aria-pressed="true">Todas</button>
+        <button class="chip" data-filtro="bolsa" aria-pressed="false">Bolsas</button>
+        <button class="chip" data-filtro="mentoria" aria-pressed="false">Mentorias</button>
+      </div>
+      <label class="busca">
+        <span class="sr">Pesquisar</span>
+        <input id="busca" type="search" placeholder="Pesquisar faculdade, curso ou mentor">
+      </label>
+    </div>
+    <p id="contagem" class="contagem" role="status"></p>
+
+    <div id="lista" class="lista"></div>
+  </main>
+
+  <script src="js/feed.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar | FJMB</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="auth">
+  <main class="auth-card">
+    <a class="logo" href="index.html">FJMB</a>
+    <h1>Entrar</h1>
+    <p class="intro">Acede à tua conta para ver bolsas e falar com mentores.</p>
+    <form data-form="login" novalidate>
+      <div class="campo">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="campo">
+        <label for="senha">Palavra-passe</label>
+        <div class="senha">
+          <input id="senha" name="senha" type="password" autocomplete="current-password" required>
+          <button type="button" data-toggle="senha">Mostrar</button>
+        </div>
+      </div>
+      <div class="extra">
+        <label><input type="checkbox" name="lembrar"> Manter sessão iniciada</label>
+        <a href="#">Esqueci a palavra-passe</a>
+      </div>
+      <p class="msg" role="status"></p>
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+    <p class="rodape-auth">Ainda não tens conta? <a href="cadastro.html">Criar conta</a></p>
+    <a class="voltar" href="index.html">Voltar ao início</a>
+  </main>
+  <script src="js/auth.js"></script>
+</body>
+</html>

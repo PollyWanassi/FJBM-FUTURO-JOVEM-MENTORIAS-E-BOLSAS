@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap");
+:root{
+  --papel:#f5f9fc; --ceu:#ddebf8; --linha:#cfdcea;
+  --azul:#3f6bb8; --azul-hover:#335a9e; --tinta:#1d2b4f; --texto:#41506f;
+  --menta:#cfede2; --menta-escuro:#2b6f5c;
+  --titulo:"Bricolage Grotesque",system-ui,sans-serif;
+  --corpo:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--corpo);font-size:18px;line-height:1.6;color:var(--texto);background:var(--papel)}
+a{color:var(--azul)}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:6px}
+h1{font-family:var(--titulo);color:var(--tinta);line-height:1.1}
+.btn{display:inline-block;font:600 16px var(--corpo);padding:12px 26px;border-radius:999px;text-decoration:none;border:2px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--azul-hover);border-color:var(--azul-hover)}
+.campo{display:grid;gap:6px}
+.campo label{font-weight:600;font-size:15px;color:var(--tinta)}
+.campo input,.campo select{font:inherit;font-size:17px;padding:12px 16px;border:1.5px solid var(--linha);border-radius:12px;background:#fff;color:var(--tinta)}
+.msg{font-size:15px;font-weight:600;min-height:1.4em}
+.msg.ok{color:var(--menta-escuro)} .msg.erro{color:#b3261e}
+body.auth{min-height:100vh;display:grid;place-items:center;padding:32px 5%;background:linear-gradient(160deg,var(--ceu),var(--menta))}
+.auth-card{width:100%;max-width:460px;background:#fff;border-radius:20px;padding:40px 36px;box-shadow:0 18px 40px rgba(29,43,79,.12)}
+.logo{display:inline-block;margin-bottom:24px;font:800 28px var(--titulo);color:var(--tinta);text-decoration:none}
+.auth-card h1{font-size:32px;font-weight:800}
+.intro{margin:8px 0 24px}
+.auth-card form{display:grid;gap:16px}
+.auth-card .btn{width:100%;margin-top:4px}
+.senha{position:relative}
+.senha input{width:100%;padding-right:84px}
+.senha button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--azul);font:600 14px var(--corpo);cursor:pointer;padding:6px 8px}
+.extra{display:flex;justify-content:space-between;align-items:center;font-size:15px;gap:12px;flex-wrap:wrap}
+.extra label{display:flex;gap:8px;align-items:center}
+.rodape-auth{margin-top:20px;text-align:center;font-size:16px}
+.voltar{display:inline-block;margin-top:16px;font-size:15px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:480px){.auth-card{padding:32px 22px}}
