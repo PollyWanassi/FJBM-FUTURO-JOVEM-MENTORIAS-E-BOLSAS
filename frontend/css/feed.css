@@ -21,7 +21,7 @@ h1,h2{font-family:var(--titulo);color:var(--tinta);line-height:1.15}
 
 .topo{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:12px 5%;background:rgba(245,249,252,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
 .logo{display:flex;align-items:center;gap:8px;font:800 26px var(--titulo);color:var(--tinta);text-decoration:none}
-.logo img{width:30px;height:30px;object-fit:contain}
+.logo img{width:30px;height:30px;object-fit:contain; display: block;}
 .topo nav{display:flex;align-items:center;gap:18px}
 .topo nav a:not(.btn){font-weight:600;text-decoration:none;color:var(--tinta)}
 

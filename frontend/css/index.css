@@ -91,6 +91,11 @@ header.scrolled{
   color:var(--tinta);
   text-decoration:none;
   margin-right:auto}
+.logo-icon{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
 .logo svg{
   width:34px;
   height:34px;
