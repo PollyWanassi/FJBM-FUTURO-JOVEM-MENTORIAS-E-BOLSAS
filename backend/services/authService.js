@@ -38,6 +38,13 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
         throw erro;
     }
 
+    //verificar o tamanho da password
+    if(String(password).length < 8){
+        const erro = new Error ('A password deve ter pelo menos 8 caracteres');
+        erro.statusCode = 400;
+        throw erro;
+    }
+
     //criptografar a senha
     const senhasafe = await bcrypt.hash(password, 10); 
 
@@ -47,7 +54,7 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
             email: email,
             contacto:contacto,
             formacao: formacao,
-            tipo: "Mentor",
+            tipo: "mentor",
             password: senhasafe
 
         }
@@ -97,6 +104,13 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
             throw erro;
         }
     
+        //verificar o tamanho da password
+        if(String(password).length < 8){
+            const erro = new Error ('A password deve ter pelo menos 8 caracteres');
+            erro.statusCode = 400;
+            throw erro;
+        }
+
         //criptografar a senha
         const senhasafe = await bcrypt.hash(password, 10);    
 
@@ -106,7 +120,7 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
             email: email,
             contacto:contacto,
             curso: curso,
-            media_ensinomedio: media_ensinomedio,
+            media_ensinomedio: media,
             tipo: "estudante",
             password: senhasafe
 
@@ -122,11 +136,17 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
 
     export async function login(email, password){
 
+        if(!email || !password){
+            const erro = new Error ('Preencha todos os campos');
+            erro.statusCode = 400;
+            throw erro;
+        }
+
         //verificacao do email
          const emailExistente = buscarEmail(email);
          if (!emailExistente) {
          const erro = new Error ("Este email nao esta cadastrado no sistema ");
-            erro.statusCode = 409;
+            erro.statusCode = 404;
             throw erro;
         }
 
@@ -142,7 +162,7 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
        const token = jwt.sign(// cria e assina o token
         {
             email: emailExistente.email, // identifica o user
-            tipo: emailExistente.tipo //permite distinguir mentor de estudante 
+            tipo: String(emailExistente.tipo).toLowerCase() //permite distinguir mentor, estudante e admin 
         },
         process.env.JWT_SECRET,//usa a chave guardada no .env
         {expiresIn:'1h'} // tempo de validade do token
@@ -152,10 +172,11 @@ export async function cadastroMentor ( nome,email,contacto, formacao,password){
        return  {
         mensagem: "Seja Bem-Vindo de volta",
         nome: emailExistente.nome,
+        tipo: String(emailExistente.tipo).toLowerCase(),
         token: token
        };
     } 
 
 
 
-    
+    

@@ -13,31 +13,6 @@ a{color:var(--azul)}
 h1,h2{font-family:var(--titulo);color:var(--tinta);line-height:1.15}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-body.auth {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 32px 5%;
-    background-color: var(--papel);
-    background-image:
-        linear-gradient(
-            to right,
-            transparent 0,
-            transparent 55px,
-            #f2b7bf 55px,
-            #f2b7bf 58px,
-            transparent 58px
-        ),
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0,
-            transparent 40px,
-            var(--linha) 40px,
-            var(--linha) 41px
-        );
-    background-attachment: fixed;
-}
-
 .btn{display:inline-block;font:600 15px var(--corpo);padding:10px 22px;border-radius:999px;text-decoration:none;border:2px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer;transition:background .2s}
 .btn:hover{background:var(--azul-hover);border-color:var(--azul-hover)}
 .btn-claro{background:transparent;color:var(--azul)}
@@ -46,7 +21,7 @@ body.auth {
 
 .topo{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:12px 5%;background:rgba(245,249,252,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
 .logo{display:flex;align-items:center;gap:8px;font:800 26px var(--titulo);color:var(--tinta);text-decoration:none}
-.logo img{width:30px;height:30px;object-fit:contain; display: block;}
+.logo img{width:30px;height:30px;object-fit:contain}
 .topo nav{display:flex;align-items:center;gap:18px}
 .topo nav a:not(.btn){font-weight:600;text-decoration:none;color:var(--tinta)}
 
@@ -85,3 +60,39 @@ body.auth {
   .card-topo{flex-wrap:wrap}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* mensagens e estados dos pedidos */
+.msg{font-size:15px;font-weight:600;min-height:1.4em;margin:8px 0}
+.msg.ok{color:var(--menta-escuro)} .msg.erro{color:#b3261e}
+.tag-pendente,.tag-por_pagar{background:var(--amarelo);color:var(--tinta)}
+.tag-aprovada,.tag-paga,.tag-inscrita{background:var(--menta);color:var(--menta-escuro)}
+.tag-rejeitada{background:#f9d6d3;color:#b3261e}
+.topo nav{flex-wrap:wrap;justify-content:flex-end}
+.btn[hidden]{display:none}
+
+/* paineis do mentor e do administrador */
+.feed-largo{max-width:960px}
+.form-painel{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#fff;border:1px solid var(--linha);border-radius:16px;padding:22px 24px;margin:16px 0 24px}
+.form-painel h2{font-size:22px}
+.form-painel .campo{display:grid;gap:6px}
+.form-painel .largo{grid-column:1/-1}
+.form-painel label{font-weight:600;font-size:15px;color:var(--tinta)}
+.form-painel input,.form-painel select,.form-painel textarea{font:inherit;font-size:16px;padding:10px 14px;border:1.5px solid var(--linha);border-radius:12px;background:#fff;color:var(--tinta)}
+.form-painel textarea{resize:vertical;min-height:80px}
+.form-painel input:disabled{background:var(--papel);color:var(--texto)}
+.form-painel .grupo{display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-column:1/-1}
+.form-painel .grupo[hidden]{display:none}
+.acoes{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.btn-perigo{border-color:#b3261e;color:#b3261e}
+.btn-perigo:hover{background:#f9d6d3;border-color:#b3261e}
+.inscritos{margin:10px 0 0 20px;font-size:15px}
+.inscritos li{margin-bottom:6px}
+details{margin-top:6px}
+summary{cursor:pointer;font-weight:600;color:var(--tinta)}
+.tabela{overflow-x:auto;background:#fff;border:1px solid var(--linha);border-radius:16px}
+.tabela table{width:100%;border-collapse:collapse;font-size:15px}
+.tabela th,.tabela td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--linha);vertical-align:middle}
+.tabela th{font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.tabela td:last-child{white-space:nowrap}
+.tabela .btn{padding:6px 14px;font-size:14px}
+@media (max-width:600px){.form-painel,.form-painel .grupo{grid-template-columns:1fr}}

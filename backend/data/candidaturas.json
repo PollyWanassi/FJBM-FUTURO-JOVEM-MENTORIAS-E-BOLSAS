@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "email": "milongavitoria@gmail.com",
+    "tipo": "bolsa",
+    "itemId": 1,
+    "estado": "pendente",
+    "criadaEm": "2026-10-23T22:26:05.177Z"
+  },
+  {
+    "id": 2,
+    "email": "milongavitoria@gmail.com",
+    "tipo": "mentoria",
+    "itemId": 1,
+    "estado": "inscrita",
+    "criadaEm": "2026-10-23T22:26:10.287Z"
+  }
+]

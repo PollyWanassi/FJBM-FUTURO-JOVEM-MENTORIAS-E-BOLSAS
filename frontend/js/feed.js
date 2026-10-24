@@ -1,37 +1,23 @@
-// Dados de exemplo. Para acrescentar um item, copia um bloco e muda os campos.
+// Os dados vêm do servidor (bolsas e mentorias).
 // "dias" = há quantos dias foi publicado (serve para ordenar o feed).
-const itens = [
-  { tipo:"bolsa", dias:1, faculdade:"ISPTEC", sigla:"IS", titulo:"Engenharia Informática", modalidade:"Bolsa integral",
-    cobertura:"100% das propinas", vagas:10, data:"2026-11-30",
-    requisitos:"Média mínima de 14 valores e carta de motivação." },
-  { tipo:"mentoria", dias:2, mentor:"Milonga Graciano", foto:"imagens/milonga.JPG", titulo:"Como organizar a candidatura a uma bolsa",
-    data:"2026-11-07", hora:"10:00", local:"ISPTEC, Sala 12, Luanda", formato:"Presencial", vagas:20 },
-  { tipo:"bolsa", dias:3, faculdade:"ISAF", sigla:"IF", titulo:"Gestão de Empresas", modalidade:"Bolsa parcial",
-    cobertura:"50% das propinas", vagas:15, data:"2026-12-10",
-    requisitos:"Média mínima de 13 valores e comprovativo de rendimento familiar." },
-  { tipo:"mentoria", dias:4, mentor:"João Gonga", foto:"imagens/joao.JPG", titulo:"Introdução à programação para principiantes",
-    data:"2026-11-14", hora:"14:30", local:"Online (Google Meet)", formato:"Online", vagas:30 },
-  { tipo:"bolsa", dias:6, faculdade:"UCAN", sigla:"UC", titulo:"Direito", modalidade:"Bolsa de mérito",
-    cobertura:"70% das propinas", vagas:5, data:"2026-11-25",
-    requisitos:"Melhor média da turma do ensino médio." },
-  { tipo:"mentoria", dias:7, mentor:"Baptista Francisco", foto:"imagens/baptista.jpeg", titulo:"Gestão do tempo no primeiro ano",
-    data:"2026-11-21", hora:"09:00", local:"UCAN, Auditório, Luanda", formato:"Presencial", vagas:40 },
-  { tipo:"bolsa", dias:9, faculdade:"UAN", sigla:"UA", titulo:"Engenharia Civil", modalidade:"Bolsa integral",
-    cobertura:"100% das propinas", vagas:8, data:"2027-01-15",
-    requisitos:"Média mínima de 15 valores e entrevista." },
-  { tipo:"mentoria", dias:11, mentor:"Frederico Bernardo", foto:"imagens/frederico.JPG", titulo:"Preparar o CV e a primeira entrevista",
-    data:"2026-12-05", hora:"15:00", local:"Online (Zoom)", formato:"Online", vagas:25 }
-];
+let itens = [];
+const pedidos = new Set(); // pedidos ja feitos pelo estudante, ex.: "bolsa:1"
+const podePedir = sessao.tipo === "estudante"; // so estudantes se candidatam
 
 const lista = document.getElementById("lista");
 const contagem = document.getElementById("contagem");
+const aviso = document.getElementById("aviso");
 const busca = document.getElementById("busca");
 let filtro = "todos";
 
-const fmtData = iso => new Date(iso + "T00:00:00").toLocaleDateString("pt-PT", { day:"2-digit", month:"long", year:"numeric" });
 const ha = d => d === 1 ? "Há 1 dia" : `Há ${d} dias`;
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
-const campo = (rotulo, valor) => `<div><dt>${rotulo}</dt><dd>${esc(valor)}</dd></div>`;
+const diasDesde = iso => Math.max(0, Math.round((Date.now() - new Date(iso)) / 864e5));
+
+function botao(i, texto, feito) {
+  if (!podePedir) return "";
+  const ja = pedidos.has(`${i.tipo}:${i.id}`);
+  return `<button class="btn" data-id="${i.id}" data-tipo="${i.tipo}" data-acao="${feito}"${ja ? " disabled" : ""}>${ja ? feito : texto}</button>`;
+}
 
 function cartao(i) {
   if (i.tipo === "bolsa") return `
@@ -47,7 +33,7 @@ function cartao(i) {
         ${campo("Prazo", fmtData(i.data))}
       </dl>
       <p class="req"><strong>Requisitos:</strong> ${esc(i.requisitos)}</p>
-      <button class="btn" data-acao="Pedido enviado">Candidatar-me</button>
+      ${botao(i, "Candidatar-me", "Pedido enviado")}
     </article>`;
   return `
     <article class="card">
@@ -60,9 +46,9 @@ function cartao(i) {
       <dl class="detalhes">
         ${campo("Data", fmtData(i.data))}${campo("Hora", i.hora)}
         ${campo("Local", i.local)}${campo("Formato", i.formato)}
-        ${campo("Vagas", i.vagas)}
+        ${campo("Vagas", i.vagas)}${campo("Preço", preco(i.preco))}
       </dl>
-      <button class="btn" data-acao="Inscrição enviada">Inscrever-me</button>
+      ${botao(i, "Inscrever-me", "Inscrição enviada")}
     </article>`;
 }
 
@@ -86,12 +72,35 @@ document.querySelectorAll("[data-filtro]").forEach(b => b.addEventListener("clic
 }));
 busca.addEventListener("input", desenhar);
 
-lista.addEventListener("click", e => {
+lista.addEventListener("click", async e => {
   const b = e.target.closest("[data-acao]");
   if (!b) return;
-  // TODO: enviar o pedido ao servidor quando o backend existir
-  b.textContent = b.dataset.acao;
   b.disabled = true;
+  try {
+    const r = await pedir("/candidaturas", { method: "POST", corpo: { tipo: b.dataset.tipo, itemId: Number(b.dataset.id) } });
+    pedidos.add(`${b.dataset.tipo}:${b.dataset.id}`);
+    b.textContent = b.dataset.acao;
+    mostrarMsg(aviso, r.mensagem, true);
+  } catch (err) {
+    b.disabled = false;
+    mostrarMsg(aviso, err.message, false);
+  }
 });
 
-desenhar();
+async function carregar() {
+  if (!exigirLogin()) return;
+  prepararMenu();
+  contagem.textContent = "A carregar…";
+  try {
+    const [bolsas, mentorias] = await Promise.all([pedir("/bolsas"), pedir("/mentorias")]);
+    itens = [...bolsas.map(b => ({ ...b, tipo: "bolsa" })), ...mentorias.map(m => ({ ...m, tipo: "mentoria" }))]
+      .map(i => ({ ...i, dias: diasDesde(i.publicadoEm) }));
+    if (podePedir) (await pedir("/candidaturas/minhas")).forEach(c => pedidos.add(`${c.tipo}:${c.itemId}`));
+  } catch (err) {
+    contagem.textContent = err.message;
+    return;
+  }
+  desenhar();
+}
+
+carregar();

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administração | FJMB</title>
+  <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="index.html"><img src="imagens/mochila.png" alt="">FJMB</a>
+    <nav aria-label="Conta">
+      <a href="feed.html">Bolsas e mentorias</a>
+      <a href="pedidos.html" data-so="estudante" hidden>Os meus pedidos</a>
+      <a href="mentor.html" data-so="mentor" hidden>As minhas mentorias</a>
+      <a href="admin.html" data-so="admin" hidden>Administração</a>
+      <a class="btn btn-claro" href="login.html" data-sair>Sair</a>
+    </nav>
+  </header>
+
+  <main class="feed feed-largo">
+    <h1>Administração</h1>
+    <p class="intro">Gere bolsas, decide candidaturas e administra os utilizadores.</p>
+
+    <div class="filtros" role="group" aria-label="Secção">
+      <button class="chip ativo" data-aba="bolsas" aria-pressed="true">Bolsas</button>
+      <button class="chip" data-aba="candidaturas" aria-pressed="false">Candidaturas</button>
+      <button class="chip" data-aba="utilizadores" aria-pressed="false">Utilizadores</button>
+    </div>
+
+    <!-- ================= BOLSAS ================= -->
+    <section data-painel="bolsas">
+      <form id="form-bolsa" class="form-painel" novalidate>
+        <h2 id="titulo-bolsa" class="largo">Nova bolsa</h2>
+        <div class="campo">
+          <label for="faculdade">Faculdade</label>
+          <input id="faculdade" name="faculdade" type="text" required>
+        </div>
+        <div class="campo">
+          <label for="sigla">Sigla (até 3 letras)</label>
+          <input id="sigla" name="sigla" type="text" maxlength="3" required>
+        </div>
+        <div class="campo largo">
+          <label for="titulo">Curso / título</label>
+          <input id="titulo" name="titulo" type="text" required>
+        </div>
+        <div class="campo">
+          <label for="modalidade">Modalidade</label>
+          <input id="modalidade" name="modalidade" type="text" placeholder="Bolsa integral, parcial, de mérito…" required>
+        </div>
+        <div class="campo">
+          <label for="cobertura">Cobertura</label>
+          <input id="cobertura" name="cobertura" type="text" placeholder="100% das propinas" required>
+        </div>
+        <div class="campo">
+          <label for="vagas">Vagas</label>
+          <input id="vagas" name="vagas" type="number" min="0" step="1" required>
+        </div>
+        <div class="campo">
+          <label for="data">Prazo</label>
+          <input id="data" name="data" type="date" required>
+        </div>
+        <div class="campo largo">
+          <label for="requisitos">Requisitos</label>
+          <textarea id="requisitos" name="requisitos" required></textarea>
+        </div>
+        <div class="acoes largo">
+          <button class="btn" type="submit">Publicar bolsa</button>
+          <button class="btn btn-claro" type="button" id="cancelar-bolsa" hidden>Cancelar edição</button>
+        </div>
+        <p class="msg largo" id="msg-bolsa" role="status"></p>
+      </form>
+      <div id="lista-bolsas" class="lista"></div>
+    </section>
+
+    <!-- ================= CANDIDATURAS ================= -->
+    <section data-painel="candidaturas" hidden>
+      <p class="msg" id="msg-candidaturas" role="status"></p>
+      <div id="lista-candidaturas" class="lista"></div>
+    </section>
+
+    <!-- ================= UTILIZADORES ================= -->
+    <section data-painel="utilizadores" hidden>
+      <form id="form-user" class="form-painel" novalidate>
+        <h2 id="titulo-user" class="largo">Novo utilizador</h2>
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" type="text" required>
+        </div>
+        <div class="campo">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="campo">
+          <label for="contacto">Contacto</label>
+          <input id="contacto" name="contacto" type="tel" inputmode="numeric" pattern="9[0-9]{8}" maxlength="9" placeholder="9XXXXXXXX" required>
+        </div>
+        <div class="campo">
+          <label for="tipo">Tipo</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Escolhe</option>
+            <option value="estudante">Estudante</option>
+            <option value="mentor">Mentor</option>
+          </select>
+        </div>
+        <div class="grupo" data-grupo="estudante" hidden>
+          <div class="campo">
+            <label for="curso">Curso</label>
+            <input id="curso" name="curso" type="text" required>
+          </div>
+          <div class="campo">
+            <label for="media_ensinomedio">Média do ensino médio (0 a 20)</label>
+            <input id="media_ensinomedio" name="media_ensinomedio" type="number" min="0" max="20" step="0.1" required>
+          </div>
+        </div>
+        <div class="grupo" data-grupo="mentor" hidden>
+          <div class="campo largo">
+            <label for="formacao">Formação</label>
+            <input id="formacao" name="formacao" type="text" required>
+          </div>
+        </div>
+        <div class="campo largo" id="campo-password">
+          <label for="password">Palavra-passe (mínimo 8 caracteres)</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+        </div>
+        <div class="acoes largo">
+          <button class="btn" type="submit">Criar utilizador</button>
+          <button class="btn btn-claro" type="button" id="cancelar-user" hidden>Cancelar edição</button>
+        </div>
+        <p class="msg largo" id="msg-user" role="status"></p>
+      </form>
+
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Nome</th><th>Email</th><th>Tipo</th><th>Contacto</th><th></th></tr></thead>
+          <tbody id="lista-users"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

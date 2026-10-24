@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Os meus pedidos | FJMB</title>
+  <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="index.html"><img src="imagens/mochila.png" alt="">FJMB</a>
+    <nav aria-label="Conta">
+      <a href="feed.html">Bolsas e mentorias</a>
+      <a href="pedidos.html" data-so="estudante" hidden>Os meus pedidos</a>
+      <a href="mentor.html" data-so="mentor" hidden>As minhas mentorias</a>
+      <a href="admin.html" data-so="admin" hidden>Administração</a>
+      <a class="btn btn-claro" href="login.html" data-sair>Sair</a>
+    </nav>
+  </header>
+
+  <main class="feed">
+    <h1>Os meus pedidos</h1>
+    <p class="intro">Candidaturas a bolsas e inscrições em mentorias, do mais recente para o mais antigo.</p>
+    <p id="aviso" class="msg" role="alert"></p>
+
+    <div id="lista" class="lista"></div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/pedidos.js"></script>
+</body>
+</html>
