@@ -1,61 +1,48 @@
 [
-  [
-    {
-      "id": 1,
-      "nome": "Administrador",
-      "email": "admin@exemplo.com",
-      "password": "admin123",
-      "perfil": "administrador"
-    },
-    {
-      "id": 2,
-      "nome": "Aluno Teste",
-      "email": "aluno@exemplo.com",
-      "password": "1234",
-      "perfil": "estudante",
-      "curso": "Engenharia Informática",
-      "media_ensinomedio": 14,
-      "instituicao": "ISPTEC"
-    },
-    {
-      "id": 3,
-      "nome": "Mentor Teste",
-      "email": "mentor@exemplo.com",
-      "password": "1234",
-      "perfil": "mentor"
-    }
-  ],
   {
+    "id": 1,
+    "nome": "Administrador",
+    "email": "admin@exemplo.com",
+    "contacto": "900000000",
+    "tipo": "admin",
+    "password": "$2b$10$PrL2E58AeIrlNumdRvIVWuOpm.xhatJlgqRct/yZ/fevgMHndY5TW"
+  },
+  {
+    "id": 2,
     "nome": "Ana Teste",
     "email": "ana.teste@example.com",
     "contacto": "923000000",
     "formacao": "Engenharia Informática",
-    "password": "$2b$10$rjlhxCw2Y/vvPDX6MbfRMO0C3u8O.7kt1qC1Fi1s0LRGWXvPspiWu"
+    "password": "$2b$10$rjlhxCw2Y/vvPDX6MbfRMO0C3u8O.7kt1qC1Fi1s0LRGWXvPspiWu",
+    "tipo": "mentor"
   },
   {
-    "nome": "Ana Cleide",
-    "email": "ana@example.com",
-    "contacto": "923000000",
-    "curso": "Engenharia Informática",
-    "media_ensinomedio": 14,
-    "password": "$2b$10$zZoVWVfp71ItDjYjxtYvCOjGTWtKts43/MZ7rBohfsvBB2MBUFWTy",
-    "tipo": "estudante"
-  },
-  {
+    "id": 4,
     "nome": "Baptista Francisco",
     "email": "PollyWanassi@gmail.com",
     "contacto": "923000000",
     "curso": "Engenharia Informática",
     "media_ensinomedio": 14,
-    "tipo": "estudante",
-    "password": "$2b$10$MTjdX0xzxeW8/qJLURnZKuJ6CLhm8q1s4.VVM4.qkkOqlU1Pz.3dK"
+    "password": "$2b$10$MTjdX0xzxeW8/qJLURnZKuJ6CLhm8q1s4.VVM4.qkkOqlU1Pz.3dK",
+    "tipo": "estudante"
   },
   {
+    "id": 5,
     "nome": "Frederico Bernardo",
     "email": "fredbernardo@gmail.com",
     "contacto": "923090890",
     "formacao": "Engenharia Informática",
-    "tipo": "Mentor",
-    "password": "$2b$10$Wt5ZPqZmhlt6/B6hfMvGpeMVmjcJwYeYUTxgESe1otTWBVADyhQzS"
+    "password": "$2b$10$Wt5ZPqZmhlt6/B6hfMvGpeMVmjcJwYeYUTxgESe1otTWBVADyhQzS",
+    "tipo": "mentor"
+  },
+  {
+    "nome": "Leandro Francisco",
+    "email": "pollywanassi14@gmail.com",
+    "contacto": "942239071",
+    "curso": "Engenharia Informática",
+    "media_ensinomedio": 20,
+    "tipo": "estudante",
+    "password": "$2b$10$vPZ/Qv9hZigjIROVZXWvnOH.PTGpimxFHRd/VOa4fcf0.Id0LcKEC",
+    "id": 6
   }
 ]

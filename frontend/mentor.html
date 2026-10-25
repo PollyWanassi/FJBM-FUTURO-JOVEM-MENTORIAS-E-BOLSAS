@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>As minhas mentorias | FJMB</title>
+  <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="index.html"><img src="imagens/mochila.png" alt="">FJMB</a>
+    <nav aria-label="Conta">
+      <a href="feed.html">Bolsas e mentorias</a>
+      <a href="pedidos.html" data-so="estudante" hidden>Os meus pedidos</a>
+      <a href="mentor.html" data-so="mentor" hidden>As minhas mentorias</a>
+      <a href="admin.html" data-so="admin" hidden>Administração</a>
+      <a class="btn btn-claro" href="login.html" data-sair>Sair</a>
+    </nav>
+  </header>
+
+  <main class="feed feed-largo">
+    <h1>As minhas mentorias</h1>
+    <p class="intro">Publica mentorias e vê quem se inscreveu.</p>
+
+    <form id="form-mentoria" class="form-painel" novalidate>
+      <h2 id="titulo-form" class="largo">Nova mentoria</h2>
+      <div class="campo largo">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="titulo" type="text" required>
+      </div>
+      <div class="campo">
+        <label for="data">Data</label>
+        <input id="data" name="data" type="date" required>
+      </div>
+      <div class="campo">
+        <label for="hora">Hora</label>
+        <input id="hora" name="hora" type="time" required>
+      </div>
+      <div class="campo">
+        <label for="local">Local</label>
+        <input id="local" name="local" type="text" placeholder="Sala, endereço ou link" required>
+      </div>
+      <div class="campo">
+        <label for="formato">Formato</label>
+        <select id="formato" name="formato" required>
+          <option value="">Escolhe</option>
+          <option value="Presencial">Presencial</option>
+          <option value="Online">Online</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="vagas">Vagas</label>
+        <input id="vagas" name="vagas" type="number" min="0" step="1" required>
+      </div>
+      <div class="campo">
+        <label for="preco">Preço em Kz (0 = gratuita)</label>
+        <input id="preco" name="preco" type="number" min="0" step="1" value="0" required>
+      </div>
+      <div class="acoes largo">
+        <button class="btn" type="submit">Publicar mentoria</button>
+        <button class="btn btn-claro" type="button" id="cancelar" hidden>Cancelar edição</button>
+      </div>
+      <p class="msg largo" role="status"></p>
+    </form>
+
+    <div id="lista" class="lista"></div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/mentor.js"></script>
+</body>
+</html>

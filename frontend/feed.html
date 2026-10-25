@@ -10,8 +10,11 @@
   <header class="topo">
     <a class="logo" href="index.html"><img src="imagens/mochila.png" alt="">FJMB</a>
     <nav aria-label="Conta">
-      <a href="index.html">Site</a>
-      <a class="btn btn-claro" href="login.html">Sair</a>
+      <a href="feed.html">Bolsas e mentorias</a>
+      <a href="pedidos.html" data-so="estudante" hidden>Os meus pedidos</a>
+      <a href="mentor.html" data-so="mentor" hidden>As minhas mentorias</a>
+      <a href="admin.html" data-so="admin" hidden>Administração</a>
+      <a class="btn btn-claro" href="login.html" data-sair>Sair</a>
     </nav>
   </header>
 
@@ -31,10 +34,12 @@
       </label>
     </div>
     <p id="contagem" class="contagem" role="status"></p>
+    <p id="aviso" class="msg" role="alert"></p>
 
     <div id="lista" class="lista"></div>
   </main>
 
+  <script src="js/api.js"></script>
   <script src="js/feed.js"></script>
 </body>
 </html>

@@ -152,3 +152,5 @@ body.auth {
     display: block;
     flex-shrink: 0;
 }
+.grupo{display:grid;gap:16px}
+.grupo[hidden]{display:none}

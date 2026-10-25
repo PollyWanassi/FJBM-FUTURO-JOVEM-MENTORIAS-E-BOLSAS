@@ -27,28 +27,40 @@
       </div>
       <div class="linha-dupla">
         <div class="campo">
-          <label for="telefone">Telefone</label>
-          <input id="telefone" name="telefone" type="tel" autocomplete="tel" required>
+          <label for="contacto">Contacto</label>
+          <input id="contacto" name="contacto" type="tel" autocomplete="tel" inputmode="numeric" pattern="9[0-9]{8}" maxlength="9" placeholder="9XXXXXXXX" title="9 dígitos, começando por 9" required>
         </div>
         <div class="campo">
-          <label for="perfil">Sou</label>
-          <select id="perfil" name="perfil" required>
+          <label for="tipo">Sou</label>
+          <select id="tipo" name="tipo" required>
             <option value="">Escolhe</option>
             <option value="estudante">Estudante</option>
             <option value="mentor">Mentor</option>
           </select>
         </div>
       </div>
-      <div class="campo">
-        <label for="instituicao">Instituição de ensino</label>
-        <input id="instituicao" name="instituicao" type="text" required>
+      <div class="grupo" data-grupo="estudante" hidden>
+        <div class="campo">
+          <label for="curso">Curso</label>
+          <input id="curso" name="curso" type="text" required>
+        </div>
+        <div class="campo">
+          <label for="media_ensinomedio">Média do ensino médio (0 a 20)</label>
+          <input id="media_ensinomedio" name="media_ensinomedio" type="number" min="0" max="20" step="0.1" required>
+        </div>
+      </div>
+      <div class="grupo" data-grupo="mentor" hidden>
+        <div class="campo">
+          <label for="formacao">Formação</label>
+          <input id="formacao" name="formacao" type="text" required>
+        </div>
       </div>
       <div class="linha-dupla">
         <div class="campo">
-          <label for="senha">Palavra-passe</label>
+          <label for="password">Palavra-passe</label>
           <div class="senha">
-            <input id="senha" name="senha" type="password" autocomplete="new-password" minlength="8" required>
-            <button type="button" data-toggle="senha">Mostrar</button>
+            <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+            <button type="button" data-toggle="password">Mostrar</button>
           </div>
         </div>
         <div class="campo">
@@ -65,6 +77,7 @@
     <p class="rodape-auth">Já tens conta? <a href="login.html">Entrar</a></p>
     <a class="voltar" href="index.html">Voltar ao início</a>
   </main>
+  <script src="js/api.js"></script>
   <script src="js/auth.js"></script>
 </body>
 </html>
