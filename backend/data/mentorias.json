@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "id": 1,
@@ -55,4 +56,78 @@
     "preco": 3500,
     "publicadoEm": "2026-10-12"
   }
-]
+]
+=======
+[
+  {
+    "id": 1,
+    "mentorEmail": "",
+    "mentor": "Milonga Graciano",
+    "foto": "imagens/milonga.JPG",
+    "titulo": "Como organizar a candidatura a uma bolsa",
+    "data": "2026-11-07",
+    "hora": "10:00",
+    "local": "ISPTEC, Sala 12, Luanda",
+    "formato": "Presencial",
+    "vagas": 19,
+    "preco": 0,
+    "publicadoEm": "2026-10-21"
+  },
+  {
+    "id": 2,
+    "mentorEmail": "",
+    "mentor": "João Gonga",
+    "foto": "imagens/joao.JPG",
+    "titulo": "Introdução à programação para principiantes",
+    "data": "2026-11-14",
+    "hora": "14:30",
+    "local": "Online (Google Meet)",
+    "formato": "Online",
+    "vagas": 30,
+    "preco": 2000,
+    "publicadoEm": "2026-10-19"
+  },
+  {
+    "id": 3,
+    "mentorEmail": "",
+    "mentor": "Baptista Francisco",
+    "foto": "imagens/baptista.jpeg",
+    "titulo": "Gestão do tempo no primeiro ano",
+    "data": "2026-11-21",
+    "hora": "09:00",
+    "local": "UCAN, Auditório, Luanda",
+    "formato": "Presencial",
+    "vagas": 40,
+    "preco": 0,
+    "publicadoEm": "2026-10-16"
+  },
+  {
+    "id": 4,
+    "mentorEmail": "fredbernardo@gmail.com",
+    "mentor": "Frederico Bernardo",
+    "foto": "imagens/frederico.JPG",
+    "titulo": "Preparar o CV e a primeira entrevista",
+    "data": "2026-12-05",
+    "hora": "15:00",
+    "local": "Online (Zoom)",
+    "formato": "Online",
+    "vagas": 25,
+    "preco": 3500,
+    "publicadoEm": "2026-10-12"
+  },
+  {
+    "titulo": "Como se sair na entrevista do processo selectivo",
+    "data": "2026-11-07",
+    "hora": "14:45",
+    "local": "Mini auditório 2 ISPTEC",
+    "formato": "Online",
+    "vagas": 15,
+    "preco": 12000,
+    "id": 5,
+    "mentorEmail": "fredbernardo@gmail.com",
+    "mentor": "Frederico Bernardo",
+    "foto": "imagens/macaco.jpg",
+    "publicadoEm": "2026-10-24"
+  }
+]
+>>>>>>> 28ef85a8e5514ecd857fbd5c4cdb7bcf80b0b641

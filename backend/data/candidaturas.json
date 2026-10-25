@@ -1,10 +1,26 @@
 [
   {
     "id": 1,
+<<<<<<< HEAD
     "email": "pollywanassi14@gmail.com",
     "tipo": "bolsa",
     "itemId": 3,
     "estado": "aprovada",
     "criadaEm": "2026-10-24T11:34:06.590Z"
+=======
+    "email": "milongavitoria@gmail.com",
+    "tipo": "bolsa",
+    "itemId": 1,
+    "estado": "pendente",
+    "criadaEm": "2026-10-23T22:26:05.177Z"
+  },
+  {
+    "id": 2,
+    "email": "milongavitoria@gmail.com",
+    "tipo": "mentoria",
+    "itemId": 1,
+    "estado": "inscrita",
+    "criadaEm": "2026-10-23T22:26:10.287Z"
+>>>>>>> 28ef85a8e5514ecd857fbd5c4cdb7bcf80b0b641
   }
 ]

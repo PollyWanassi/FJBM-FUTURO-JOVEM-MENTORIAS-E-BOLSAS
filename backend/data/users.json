@@ -15,6 +15,19 @@
     "formacao": "Engenharia Informática",
     "password": "$2b$10$rjlhxCw2Y/vvPDX6MbfRMO0C3u8O.7kt1qC1Fi1s0LRGWXvPspiWu",
     "tipo": "mentor"
+<<<<<<< HEAD
+=======
+  },
+  {
+    "id": 3,
+    "nome": "Ana Cleide",
+    "email": "ana@example.com",
+    "contacto": "923000000",
+    "curso": "Engenharia Informática",
+    "media_ensinomedio": 14,
+    "password": "$2b$10$zZoVWVfp71ItDjYjxtYvCOjGTWtKts43/MZ7rBohfsvBB2MBUFWTy",
+    "tipo": "estudante"
+>>>>>>> 28ef85a8e5514ecd857fbd5c4cdb7bcf80b0b641
   },
   {
     "id": 4,
@@ -36,6 +49,7 @@
     "tipo": "mentor"
   },
   {
+<<<<<<< HEAD
     "nome": "Leandro Francisco",
     "email": "pollywanassi14@gmail.com",
     "contacto": "942239071",
@@ -43,6 +57,15 @@
     "media_ensinomedio": 20,
     "tipo": "estudante",
     "password": "$2b$10$vPZ/Qv9hZigjIROVZXWvnOH.PTGpimxFHRd/VOa4fcf0.Id0LcKEC",
+=======
+    "nome": "Milonga Vitória",
+    "email": "milongavitoria@gmail.com",
+    "contacto": "929766638",
+    "curso": "engenharia informatica",
+    "media_ensinomedio": 13.5,
+    "tipo": "estudante",
+    "password": "$2b$10$HX7LAv1CnEirFRa33pYtiO/ohvs75IxEIIS3DDfP3GzI7IrBjDznK",
+>>>>>>> 28ef85a8e5514ecd857fbd5c4cdb7bcf80b0b641
     "id": 6
   }
 ]

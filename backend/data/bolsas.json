@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "id": 1,
@@ -48,3 +49,55 @@
     "publicadoEm": "2026-10-14"
   }
 ]
+=======
+[
+  {
+    "id": 1,
+    "faculdade": "ISPTEC",
+    "sigla": "IS",
+    "titulo": "Engenharia Informática",
+    "modalidade": "Bolsa integral",
+    "cobertura": "100% das propinas",
+    "vagas": 10,
+    "data": "2026-11-30",
+    "requisitos": "Média mínima de 14 valores e carta de motivação.",
+    "publicadoEm": "2026-10-22"
+  },
+  {
+    "id": 2,
+    "faculdade": "ISAF",
+    "sigla": "IF",
+    "titulo": "Gestão de Empresas",
+    "modalidade": "Bolsa parcial",
+    "cobertura": "50% das propinas",
+    "vagas": 15,
+    "data": "2026-12-10",
+    "requisitos": "Média mínima de 13 valores e comprovativo de rendimento familiar.",
+    "publicadoEm": "2026-10-20"
+  },
+  {
+    "id": 3,
+    "faculdade": "UCAN",
+    "sigla": "UC",
+    "titulo": "Direito",
+    "modalidade": "Bolsa de mérito",
+    "cobertura": "70% das propinas",
+    "vagas": 5,
+    "data": "2026-11-25",
+    "requisitos": "Melhor média da turma do ensino médio.",
+    "publicadoEm": "2026-10-17"
+  },
+  {
+    "id": 4,
+    "faculdade": "UAN",
+    "sigla": "UA",
+    "titulo": "Engenharia Civil",
+    "modalidade": "Bolsa integral",
+    "cobertura": "100% das propinas",
+    "vagas": 8,
+    "data": "2027-01-15",
+    "requisitos": "Média mínima de 15 valores e entrevista.",
+    "publicadoEm": "2026-10-14"
+  }
+]
+>>>>>>> 28ef85a8e5514ecd857fbd5c4cdb7bcf80b0b641
